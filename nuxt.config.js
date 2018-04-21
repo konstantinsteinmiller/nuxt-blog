@@ -1,6 +1,12 @@
 require('dotenv').config()
 const client = require ('./plugins/contentful')
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/nuxt-blog/'
+  },
+} : {}
+
 module.exports = {
   /*
   ** Headers of the page
@@ -24,6 +30,7 @@ module.exports = {
   /*
   ** Build configuration
   */
+  ...routerBase,
   build: {
     /*
     ** Run ESLint on save
