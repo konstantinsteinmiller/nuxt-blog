@@ -27,7 +27,6 @@ export default {
     return client.getEntries({
       content_type: 'title'
     }).then(entries => {
-      console.log('entries', entries)
       return { posts: entries.items }
     }).catch(e => console.log('ERROR e', /*e,*/ e.response.data, e.response.data.details.errors))
   },
